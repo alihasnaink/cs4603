@@ -1,6 +1,11 @@
 from dataclasses import dataclass
 import os
 
+# Set a default USER_AGENT before importing LangChain web loaders so they don't
+# emit the "USER_AGENT environment variable not set" warning. An explicit value
+# in the environment (or .env) takes precedence.
+os.environ.setdefault("USER_AGENT", "cs4603-langchain/1.0")
+
 from dotenv import load_dotenv
 from typing import Union, Dict, Any
 
